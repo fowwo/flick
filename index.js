@@ -13,10 +13,7 @@ function hit() {
         if (!playing) {
             playing = true;
             startTime = (new Date).getTime();
-
-            // Hide difficulty buttons
-            document.getElementById("difficulty-list").style.left = `-220px`;
-            document.getElementById("difficulty-list").style.filter = `opacity(0%)`;
+            hideDifficultyButtons();
         }
 
         score--;
@@ -26,10 +23,7 @@ function hit() {
         if (score === 0) {
             playing = false;
             hitObject.style.filter = "opacity(0%)";
-
-            // Show difficulty buttons
-            document.getElementById("difficulty-list").style.left = `0px`;
-            document.getElementById("difficulty-list").style.filter = `opacity(100%)`;
+            showDifficultyButtons();
         } else {
             move(hitObject);
         }
