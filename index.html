@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>flick</title>
+	<meta name="author" content="fowwo">
+	<meta charset="UTF-8">
+	<link rel="icon" href="images/favicon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<body>
+	<ul id="difficulty-list" class="button-list" style="position: fixed; left: 0px; top: 20%;">
+		<li><button id="easy" onclick="chooseDifficulty('easy')">Easy</button></li>
+		<li><button id="normal" onclick="chooseDifficulty('normal')">Normal</button></li>
+		<li><button id="hard" onclick="chooseDifficulty('hard')">Hard</button></li>
+	</ul>
+	<div>
+		<p id="timer" style="text-align: center;">-</p>
+		<p id="score" style="text-align: center;">-</p>
+	</div>
+	<div id="play-area">
+		<div id="target" class="hit-object" onmouseover="hit();" style="filter: opacity(0%);"></div>
+	</div>
+	<div class="background"></div>
+	<div style="display: flex; padding: 0 10px">
+		<div class="sidebox"></div>
+		<div style="flex-grow: 1;"></div>
+		<div class="sidebox"></div>
+	</div>
+</body>
+</html>
