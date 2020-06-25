@@ -11,22 +11,28 @@ function hit() {
 
     if (score !== 0) {
         click.play();
-        if (!playing) {
+        if (!playing && !viewing) {
             playing = true;
             startTime = (new Date).getTime();
             hideDifficultyButtons();
+            hideReplayButtons();
         }
 
         score--;
         const hitObject = document.getElementById('target');
         document.getElementById("score").innerHTML = score;
+        replay.target.push({time: timeSince(startTime), x: Number.parseFloat(target.style.left), y: Number.parseFloat(target.style.top)});
+        replay.hit.push(timeSince(startTime));
 
         if (score === 0) {
             time = timeSince(startTime);
             document.getElementById("timer").innerHTML = timeFormat(time);
+            replay.time = time;
+            replay.cursor.push({time: time, x: cursor.x, y: cursor.y});
             playing = false;
             hitObject.style.filter = "opacity(0%)";
             showDifficultyButtons();
+            showReplayButtons();
         } else {
             move(hitObject);
         }
@@ -48,6 +54,8 @@ function reset() {
     playing = false;
     score = max;
     startTime = -1;
+    resetReplay();
+    hideReplayButtons();
 
     const hitObject = document.getElementById('target');
     move(hitObject, (window.innerWidth - diameter) / 2, 120);
@@ -60,7 +68,7 @@ function reset() {
 }
 
 function chooseDifficulty(difficulty) {
-    if (!playing) {
+    if (!playing && !viewing) {
         if (difficulty == "easy") {
             diameter = 175;
         } else if (difficulty == "normal") {
