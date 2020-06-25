@@ -3,7 +3,7 @@ var score = 0;
 var startTime = -1;
 var time = -1;
 var playing = false;
-var diameter = 100;
+var diameter = -1;
 
 const click = new Audio("sounds/click.mp3");
 
