@@ -1,4 +1,4 @@
-var max = 100;
+var max = 75;
 var score = 0;
 var startTime = -1;
 var playing = false;
