@@ -1,5 +1,5 @@
 function hideDifficultyButtons() {
-	document.getElementById("difficulty-list").style.left = `-220px`;
+	document.getElementById("difficulty-list").style.left = `-200px`;
     document.getElementById("difficulty-list").style.filter = `opacity(0%)`;
 }
 
