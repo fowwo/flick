@@ -38,12 +38,9 @@ function move(hitObject, x, y) {
     if (x !== undefined && y !== undefined) {
         hitObject.style.left = `${x}px`;
         hitObject.style.top = `${y}px`;
-    } else if (window.innerWidth >= window.innerHeight - 120) {
-        hitObject.style.left = `${randBetween((window.innerWidth - window.innerHeight + 120) / 2, window.innerWidth - ((window.innerWidth - window.innerHeight - 120) / 2) - hitObject.scrollWidth)}px`;
-        hitObject.style.top = `${randBetween(120, window.innerHeight - hitObject.scrollWidth)}px`;
     } else {
-        hitObject.style.left = `${randBetween(120, window.innerWidth - hitObject.scrollWidth)}px`;
-        hitObject.style.top = `${randBetween((window.innerHeight - window.innerWidth + 120) / 2, window.innerHeight - ((window.innerHeight - window.innerWidth - 120) / 2) - hitObject.scrollWidth)}px`;
+        hitObject.style.left = `${randBetween(0, window.innerWidth - hitObject.scrollWidth)}px`;
+        hitObject.style.top = `${randBetween(120, window.innerHeight - hitObject.scrollWidth)}px`;
     }
 }
 
