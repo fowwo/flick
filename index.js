@@ -1,6 +1,7 @@
 var max = 75;
 var score = 0;
 var startTime = -1;
+var time = -1;
 var playing = false;
 var diameter = 100;
 
@@ -21,6 +22,8 @@ function hit() {
         document.getElementById("score").innerHTML = score;
 
         if (score === 0) {
+            time = timeSince(startTime);
+            document.getElementById("timer").innerHTML = timeFormat(time);
             playing = false;
             hitObject.style.filter = "opacity(0%)";
             showDifficultyButtons();
