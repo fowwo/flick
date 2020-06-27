@@ -30,13 +30,13 @@ button::before {
     z-index: -1;
     box-shadow: 0 0 50px #0005;
 }
-button#easy {
+button#large {
     background-color: #6c6;
 }
-button#normal {
+button#medium {
     background-color: #cb6;
 }
-button#hard {
+button#small {
     background-color: #c66;
 }
 li button:hover {

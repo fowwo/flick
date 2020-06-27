@@ -69,11 +69,11 @@ function reset() {
 
 function chooseDifficulty(difficulty) {
     if (!playing && !viewing) {
-        if (difficulty == "easy") {
+        if (difficulty == "large") {
             diameter = 20;
-        } else if (difficulty == "normal") {
+        } else if (difficulty == "medium") {
             diameter = 13.5;
-        } else if (difficulty == "hard") {
+        } else if (difficulty == "small") {
             diameter = 8;
         }
         reset();
