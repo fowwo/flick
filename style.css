@@ -39,6 +39,9 @@ button#medium {
 button#small {
     background-color: #c66;
 }
+button#tiny {
+    background-color: #b6c;
+}
 li button:hover {
     width: 220px;
 	text-shadow: 0 0 10px #000;

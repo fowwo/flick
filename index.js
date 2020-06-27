@@ -75,6 +75,8 @@ function chooseDifficulty(difficulty) {
             diameter = 13.5;
         } else if (difficulty == "small") {
             diameter = 8;
+        } else if (difficulty == "tiny") {
+            diameter = 4.5;
         }
         reset();
     }
