@@ -4,6 +4,7 @@ html {
 }
 body {
     margin: 1vh 0 0 0;
+    overflow: hidden;
 }
 button {
     margin: 0;
