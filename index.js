@@ -34,19 +34,19 @@ function hit() {
             showDifficultyButtons();
             showReplayButtons();
         } else {
-            move(hitObject);
+            moveInPlayArea(hitObject);
         }
     }
 
 }
 
-function move(hitObject, x, y) {
-    if (x !== undefined && y !== undefined) {
-        hitObject.style.left = `${x}px`;
-        hitObject.style.top = `${y}px`;
+function moveInPlayArea(hitObject, left, top) {
+    if (left !== undefined && top !== undefined) {
+        hitObject.style.left = left;
+        hitObject.style.top = top;
     } else {
-        hitObject.style.left = `${randBetween(0, window.innerWidth - hitObject.scrollWidth)}px`;
-        hitObject.style.top = `${randBetween(120, window.innerHeight - hitObject.scrollWidth)}px`;
+        hitObject.style.left = `${randBetween(0, 100 - diameter * 0.75)}%`;
+        hitObject.style.top = `${randBetween(0, 100 - diameter)}%`;
     }
 }
 
@@ -58,10 +58,10 @@ function reset() {
     hideReplayButtons();
 
     const hitObject = document.getElementById('target');
-    move(hitObject, (window.innerWidth - diameter) / 2, 120);
     hitObject.style.filter = "";
-    hitObject.style.width = `${diameter}px`;
-    hitObject.style.height = `${diameter}px`;
+    hitObject.style.width = `${diameter * 0.75}%`;
+    hitObject.style.height = `${diameter}%`;
+    moveInPlayArea(hitObject, `calc(${50 - diameter * 0.75 / 2}%)`, `calc(${50 - diameter / 2}%)`);
 
     document.getElementById("timer").innerHTML = "0:00.000";
     document.getElementById("score").innerHTML = score;
@@ -70,11 +70,11 @@ function reset() {
 function chooseDifficulty(difficulty) {
     if (!playing && !viewing) {
         if (difficulty == "easy") {
-            diameter = 175;
+            diameter = 20;
         } else if (difficulty == "normal") {
-            diameter = 110;
+            diameter = 13.5;
         } else if (difficulty == "hard") {
-            diameter = 50;
+            diameter = 8;
         }
         reset();
     }

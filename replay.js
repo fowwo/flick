@@ -21,23 +21,23 @@ function watchReplay(replay) {
         hitObject.style.filter = "opacity(100%)";
         cursor.style.filter = "opacity(100%)";
         var pop = cursorArray.shift();
-        move(cursor, pop.x, pop.y);
+        moveInPlayArea(cursor, `calc(${pop.x}% - 10px)`, `calc(${pop.y}% - 10px)`);
         pop = targetArray.shift();
-        move(hitObject, pop.x, pop.y);
+        moveInPlayArea(hitObject, `calc(${50 - diameter * 0.75 / 2}%)`, `calc(${50 - diameter / 2}%)`);
         setTimeout(() => {
             var replayStart = (new Date).getTime();
             var loop = setInterval(() => {
                 document.getElementById("timer").innerHTML = timeFormat(timeSince(replayStart));
                 while (cursorArray.length > 0 && timeSince(replayStart) >= cursorArray[0].time) {
                     pop = cursorArray.shift();
-                    move(cursor, pop.x - 12.5, pop.y - 12.5);
+                    moveInPlayArea(cursor, `calc(${pop.x}% - 10px)`, `calc(${pop.y}% - 10px)`);
                 }
                 while (targetArray.length > 0 && timeSince(replayStart) >= hitArray[0]) {
                     score.innerHTML = targetArray.length;
                     click.play();
                     hitArray.shift();
                     pop = targetArray.shift();
-                    move(hitObject, pop.x, pop.y);
+                    moveInPlayArea(hitObject, `${pop.x}%`, `${pop.y}%`);
                 }
                 if (cursorArray.length === 0) {
                     clearInterval(loop);
